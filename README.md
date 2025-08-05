@@ -20,7 +20,7 @@ The following steps are executed in the Jenkins pipeline to automate deployment 
 - 🚀**Transfer the ZIP file** to the remote server using SCP
 - 🔐**Establish an SSH connection** to the remote server
 - 📂**Unzip the file** on the remote server
-- 🐋**Execute Docker pull and Docker run** to retrieve the image and run the container
+- 🐋**Builds Docker image** and **Runs Docker Container**
 
 `Select jenkins pipeline model`
               ⬇️
@@ -32,6 +32,9 @@ The following steps are executed in the Jenkins pipeline to automate deployment 
               ⬇️
 
 `Click on build`
+              ⬇️
+
+`Browse Application with ip address`
 
   ---
 ## 🔐Required Jenkins Credentials:
@@ -39,7 +42,14 @@ The following steps are executed in the Jenkins pipeline to automate deployment 
 - Configurable environment Variables in Jenkinsfile
 
 ---
+## 🔁CI/CD Automation with GitHub Webhook
+This project uses a GitHub webhook to automate deployments via Jenkins.
 
-
-
-
+✅ How it works:
+- You push changes to your GitHub repo.
+- GitHub sends a webhook POST request to your Jenkins server.
+- Jenkins receives the webhook and automatically:
+        Pulls the latest code.
+        Builds the application.
+        Builds the Docker image.
+- Deploys it to your remote host/container.
