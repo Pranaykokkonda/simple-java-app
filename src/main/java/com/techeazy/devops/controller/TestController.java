@@ -8,6 +8,6 @@ public class TestController {
 
     @GetMapping
     public  String test() {
-        return "Successfully Deployed on prod stage";
+        return "A simple Java application was deployed using a Jenkins CI/CD pipeline.";
     }
 }
