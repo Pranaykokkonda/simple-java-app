@@ -53,3 +53,7 @@ This project uses a GitHub webhook to automate deployments via Jenkins.
         Builds the application.
         Builds the Docker image.
 - Deploys it to your remote host/container.
+
+---
+![image alt](https://github.com/Pranaykokkonda/simple-java-app/blob/c87e683f52ed34a01523881926de84a5dde0d87b/Img1.jpg)
+![image alt](https://github.com/Pranaykokkonda/simple-java-app/blob/c87e683f52ed34a01523881926de84a5dde0d87b/Img2.jpg)
