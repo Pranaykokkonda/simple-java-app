@@ -2,10 +2,10 @@ pipeline {
     agent any
 
     environment {
-        REMOTE_HOST = 'server-ip'          
+        REMOTE_HOST = 'ip'          
         REMOTE_USER = 'ubuntu'                
         APP_NAME = 'java'
-        DOCKER_IMAGE = 'Docker-yourname/image-name'
+        DOCKER_IMAGE = 'java1'
     }
 
     stages {
@@ -29,17 +29,19 @@ pipeline {
                             pwd
                             unzip testing.zip
                             ls -ltrh
-                            echo "🔮Pulling Docker image $DOCKER_IMAGE..."
-                            sudo docker pull $DOCKER_IMAGE
-                            sudo docker images
 
                             echo "🔮Stopping and removing old container (if exists)..."
                             sudo docker stop $APP_NAME || true
                             sudo docker rm $APP_NAME || true
+                
+                            echo "🔮Building Docker image $DOCKER_IMAGE..."
+                            sudo docker build . -t $DOCKER_IMAGE
+                            sudo docker images
                         
                             echo "🔮Running new container..."
                             sudo docker run -d --name $APP_NAME -p 80:80 $DOCKER_IMAGE
                             sudo docker ps
+                            date
 
                             echo "Deployment completed on remote server."
                     << EOF
